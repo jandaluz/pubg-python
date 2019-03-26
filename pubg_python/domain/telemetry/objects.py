@@ -87,6 +87,7 @@ class Character(Object):
         self.location = Location(self._data.get('location', {}))
         self.ranking = self._data.get('ranking')
         self.account_id = self._data.get('accountId')
+        self.zone = self._data.get('zone')
 
 
 class Vehicle(Object):
