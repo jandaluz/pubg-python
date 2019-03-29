@@ -26,7 +26,7 @@ class Client:
     def request(self, endpoint, **kwargs):
         self.session.params = kwargs.get('params',None)
         response = self.session.get(endpoint, timeout=DEFAULT_TIMEOUT)
-        response.encoding = "utf-8"
+
         if response.status_code != self.API_OK:
             exception = self.API_ERRORS_MAPPING.get(
                 response.status_code, exceptions.APIError)
