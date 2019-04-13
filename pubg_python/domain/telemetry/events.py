@@ -14,7 +14,10 @@ class Event:
 
     @staticmethod
     def instance(data):
-        return globals()[data['_T']](data)
+        try:
+            return globals()[data['_T']](data)
+        except:
+            pass
 
 
 class LogPlayerLogin(Event):
@@ -88,6 +91,7 @@ class LogPlayerKill(Event):
         self.damage_type_category = self._data.get('damageTypeCategory')
         self.damage_reason = self._data.get('damageReason')
         self.distance = self._data.get('distance')
+        self.damage_causer_name = self._data.get('damageCauserName')
 
 
 class LogParachuteLanding(Event):
@@ -143,7 +147,7 @@ class LogItemDetach(LogItemBundle):
     pass
 
 
-class LogItemPickupFromCarePackage(LogItemPickup):
+class LogItemPickupFromCarepackage(LogItemPickup):
     pass
 
 
