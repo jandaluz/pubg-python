@@ -14,10 +14,7 @@ class Event:
 
     @staticmethod
     def instance(data):
-        try:
-            return globals()[data['_T']](data)
-        except:
-            pass
+        return globals()[data['_T']](data)
 
 
 class LogPlayerLogin(Event):
